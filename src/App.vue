@@ -1,8 +1,10 @@
 <template>
   <v-app id="app">
-    <v-app-bar app color="white">
+    <v-app-bar v-if="!isLogin" app color="white">
       <div class="d-flex align-center">
-        <v-icon>mdi-app</v-icon>
+        <v-btn icon @click="miniVariant=!miniVariant">
+          <v-icon>mdi-menu</v-icon>
+        </v-btn>
         <span class="title font-weight-light">ZombieHunter企业画像系统</span>
       </div>
 
@@ -16,6 +18,7 @@
 
     <v-navigation-drawer
       app
+      v-if="!isLogin"
       v-model="drawer"
       color="primary"
       :expand-on-hover="expandOnHover"
@@ -87,12 +90,12 @@ export default {
     drawer: true,
     items: [
       { title: "首页", icon: "mdi-view-dashboard", link: "home" },
+      { title: "数据分析", icon: "mdi-image", link: "data" },
       { title: "用户主页", icon: "mdi-image", link: "user" }
     ],
     stat: [
       { title: "企业概览", icon: "mdi-image", link: "intro" },
       { title: "经营能力", icon: "mdi-image", link: "ablity" },
-      { title: "风险画像", icon: "mdi-image", link: "draw" },
       {
         title: "风险指标",
         icon: "mdi-image",
@@ -101,7 +104,12 @@ export default {
     ],
     miniVariant: false,
     bg: "https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
-  })
+  }),
+  computed: {
+    isLogin() {
+      return this.$route.name === "Login";
+    }
+  }
 };
 </script>
 

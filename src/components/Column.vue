@@ -16,48 +16,35 @@ export default {
     draw() {
       const data = [
         {
-          type: "家具家电",
-          sales: 38
+          负债: "0-500",
+          公司个数: 9
         },
         {
-          type: "粮油副食",
-          sales: 52
+          负债: "500-5000",
+          公司个数: 102
         },
         {
-          type: "生鲜水果",
-          sales: 61
+          负债: "5000-1亿",
+          公司个数: 104
         },
         {
-          type: "美容洗护",
-          sales: 145
+          负债: "1亿-10亿",
+          公司个数: 1227
         },
         {
-          type: "母婴用品",
-          sales: 48
-        },
-        {
-          type: "进口食品",
-          sales: 38
-        },
-        {
-          type: "食品饮料",
-          sales: 38
-        },
-        {
-          type: "家庭清洁",
-          sales: 38
+          负债: "10亿以上",
+          公司个数: 1326
         }
       ];
 
       const columnPlot = new Column(document.getElementById("c1"), {
         title: {
           visible: true,
-          text: "注册资本"
+          text: "在库企业注册资本分布"
         },
-        padding: "auto",
         data,
-        xField: "type",
-        yField: "sales",
+        xField: "负债",
+        yField: "公司个数",
         meta: {
           type: {
             alias: "类别"

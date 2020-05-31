@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: "/home",
     name: "Home",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -50,6 +50,16 @@ const routes = [
     path: "/draw",
     name: "Draw",
     component: () => import(/* webpackChunkName: "Draw" */ "../views/Draw.vue"),
+  },
+  {
+    path: "/data",
+    name: "Data",
+    component: () => import(/* webpackChunkName: "Data" */ "../views/Data.vue"),
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () => import(/* webpackChunkName: "Login" */ "../views/Login.vue"),
   },
 ];
 

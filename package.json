@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "@antv/g2plot": "^1.1.5",
-    "@mdi/font": "^3.6.95",
+    "@antv/g6": "^3.5.0",
+    "@antv/l7": "^2.2.11",
+    "@antv/l7-maps": "^2.2.11",
+    "@mdi/font": "^5.3.45",
     "core-js": "^3.6.5",
     "insert-css": "^2.0.0",
     "roboto-fontface": "*",

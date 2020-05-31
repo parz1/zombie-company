@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { Column } from "@antv/g2plot";
+import { GroupedColumn } from "@antv/g2plot";
 export default {
   name: "",
   data() {
@@ -16,56 +16,74 @@ export default {
     draw() {
       const data = [
         {
-          type: "家具家电",
-          sales: 38
+          name: "僵尸企业",
+          负债: "0-500",
+          公司个数: 9
         },
         {
-          type: "粮油副食",
-          sales: 52
+          name: "僵尸企业",
+          负债: "500-5000",
+          公司个数: 102
         },
         {
-          type: "生鲜水果",
-          sales: 61
+          name: "僵尸企业",
+          负债: "5000-1亿",
+          公司个数: 104
         },
         {
-          type: "美容洗护",
-          sales: 145
+          name: "僵尸企业",
+          负债: "1亿-10亿",
+          公司个数: 1227
         },
         {
-          type: "母婴用品",
-          sales: 48
+          name: "僵尸企业",
+          负债: "10亿以上",
+          公司个数: 1326
         },
         {
-          type: "进口食品",
-          sales: 38
+          name: "非僵尸企业",
+          负债: "0-500",
+          公司个数: 9
         },
         {
-          type: "食品饮料",
-          sales: 38
+          name: "非僵尸企业",
+          负债: "500-5000",
+          公司个数: 252
         },
         {
-          type: "家庭清洁",
-          sales: 38
+          name: "非僵尸企业",
+          负债: "5000-1亿",
+          公司个数: 308
+        },
+        {
+          name: "非僵尸企业",
+          负债: "1亿-10亿",
+          公司个数: 3166
+        },
+        {
+          name: "非僵尸企业",
+          负债: "10亿以上",
+          公司个数: 3506
         }
       ];
 
-      const columnPlot = new Column(document.getElementById("stuff"), {
+      const columnPlot = new GroupedColumn(document.getElementById("stuff"), {
         title: {
           visible: true,
-          text: "注册资本"
+          text: "2017年负债总额分布"
         },
-        padding: "auto",
+        forceFit: true,
         data,
-        xField: "type",
-        yField: "sales",
-        meta: {
-          type: {
-            alias: "类别"
-          },
-          sales: {
-            alias: "销售额(万)"
-          }
-        }
+        xField: "负债",
+        yField: "公司个数",
+        yAxis: {
+          min: 0
+        },
+        label: {
+          visible: true
+        },
+        groupField: "name",
+        color: ["#90CAF9", "#000"]
       });
 
       columnPlot.render();
